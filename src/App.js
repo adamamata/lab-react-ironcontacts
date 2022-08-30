@@ -7,6 +7,7 @@ function App() {
   const [celebrity, setCelebrity] = useState(firstFive);
   const celebrityList = [...celebrity];
 
+  //Function expression to add random contact
   const addRandom = () => {
     let i = Math.floor(Math.random() * contacts.length);
     if (!celebrityList.includes(contacts[i])){
@@ -15,10 +16,29 @@ function App() {
     setCelebrity(celebrityList);
   }
 
+  //Function expression to sort by popularity
+  const sortPopularity = () => {
+    setCelebrity(celebrityList.sort((a, b) => a.popularity > b.popularity ? -1 : 1));
+  }
+
+  //Function expression to sort by name
+  const sortName = () => {
+    setCelebrity(celebrityList.sort((a, b) => a.name > b.name ? 1 : -1));
+  }
+
+  //Function expression to delete a contact
+  const deleteContact = (event) => {
+    //Have to go the airport to pick up my girlfriend's family. If this isn't done by tomorrow's class I'll finish it after :) 
+  }
+
   return (
   <div className="App">
     <h1>IronContacts</h1>
-    <button onClick={() => addRandom()}>Add Random Contact</button> 
+    <div className="sorting-buttons">
+      <button onClick={() => addRandom()}>Add Random Contact</button> 
+      <button onClick={() => sortPopularity()}>Sort by Popularity</button> 
+      <button onClick={() => sortName()}>Sort by Name</button> 
+    </div>
     <table>
       <thead>
         <tr>
@@ -27,6 +47,7 @@ function App() {
           <th>Popularity</th>
           <th>Won an Oscar</th>
           <th>Won an Emmy</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -37,6 +58,7 @@ function App() {
             <td>{Math.round(celebs.popularity)}</td>
             <td>{celebs.wonOscar ? '🏆' : ""}</td>
             <td>{celebs.wonEmmy ? '🏆' : ""}</td>
+            <td><button onClick={() => deleteContact()}>Delete</button></td>
           </tr>
         )}
       </tbody>
