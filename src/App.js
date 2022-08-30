@@ -52,7 +52,7 @@ function App() {
       </thead>
       <tbody>
         {celebrityList.map(celebs => 
-          <tr>
+          <tr key={celebs.id} >
             <td><img src={celebs.pictureUrl} alt='celebPicture'/></td>
             <td>{celebs.name}</td>
             <td>{Math.round(celebs.popularity)}</td>
