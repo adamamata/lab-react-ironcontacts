@@ -27,7 +27,7 @@ function App() {
   }
 
   //Function expression to delete a contact
-  const deleteContact = (event) => {
+  const deleteContact = () => {
     //Have to go the airport to pick up my girlfriend's family. If this isn't done by tomorrow's class I'll finish it after :) 
   }
 
